@@ -8,7 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-인덱스 jsp입니다.
-</br>
+	인덱스 jsp입니다.
+	</br>
+<%-- 	<c:if test="${not empty mist}"> --%>
+		<c:forEach var="mem" items="${mlist}">
+			<tr>
+				<td>${mem.name}</td>
+				<td>${mem.id}</td>
+				<td>${mem.age}</td>
+			</tr>
+		</c:forEach>
+<%-- 	</c:if> --%>
 </body>
 </html>
