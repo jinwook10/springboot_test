@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Member_dto {
-	private String name;
-	private String id;
-	private int age;
+	private String mem_name;
+	private String mem_id;
+	private int mem_age;
 }

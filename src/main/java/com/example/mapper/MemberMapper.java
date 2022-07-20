@@ -9,5 +9,6 @@ import com.example.dto.Member_dto;
 
 @Mapper
 public interface MemberMapper {
+	
 	List<Member_dto> allmember();
 }

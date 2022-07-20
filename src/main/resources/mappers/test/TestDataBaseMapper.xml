@@ -3,14 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.example.mapper.MemberMapper">
+<mapper namespace="com.example.mapper.test.TestDataBaseMapper">
 	<resultMap id="memberMap" type="Member_dto">
         <result property="mem_name" column="name"/>
         <result property="mem_id" column="id"/>
         <result property="mem_age" column="age"/>   
     </resultMap>
 	
-    <select id="allmember" resultType="Member_dto" resultMap="memberMap">
+    <select id="t_allmember" resultType="Member_dto" resultMap="memberMap">
         SELECT name,id,age FROM member
     </select>
 </mapper>
