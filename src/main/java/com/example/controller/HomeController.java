@@ -7,10 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.dto.Member_dto;
-import com.example.service.Another_Member_serviceimpl;
-//import com.example.service.Another_Member_serviceimpl;
-import com.example.service.Test_Member_serviceimpl;
+import com.example.model.Member;
+import com.example.service.Impl.AnotherMemberServiceImpl;
+import com.example.service.Impl.TestMemberServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,14 +17,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HomeController {
 	
-	private final Test_Member_serviceimpl tmService;
-	private final Another_Member_serviceimpl amService;
+	private final TestMemberServiceImpl tmService;
+	private final AnotherMemberServiceImpl amService;
 	//private final Member_service amService;
 	
 	@RequestMapping(value = "/index2")
 	public String index2(Model model) throws Exception {
-		List<Member_dto> tmemlist = tmService.memberlist();
-		List<Member_dto> amemlist = amService.memberlist();
+		List<Member> tmemlist = tmService.memberList();
+		List<Member> amemlist = amService.memberList();
 		model.addAttribute("tmlist", tmemlist);
 		System.out.println(tmemlist+"뭐야");
 		model.addAttribute("amlist", amemlist);
@@ -36,7 +35,7 @@ public class HomeController {
 	@ResponseBody	//데이터를보냄 
 	@RequestMapping(value = "/index3")
 	public Object index3(Model model) throws Exception {
-		Member_dto m = new Member_dto();
+		Member m = new Member();
 		m.setMem_age(10);
 		m.setMem_id("abc");
 		m.setMem_name("jinwok");

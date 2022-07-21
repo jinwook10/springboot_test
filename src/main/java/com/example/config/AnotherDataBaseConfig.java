@@ -19,7 +19,6 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 @MapperScan(value="com.example.mapper.another", sqlSessionFactoryRef="anotherSqlSessionFactory")
 @EnableTransactionManagement
-
 public class AnotherDataBaseConfig {
 	@Bean(name="anotherDataSource")
 	@ConfigurationProperties(prefix="spring.another.datasource")
@@ -34,7 +33,7 @@ public class AnotherDataBaseConfig {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(anotherDataSource);
 		sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:mappers/another/*.xml"));
-		sqlSessionFactoryBean.setTypeAliasesPackage("com.example.dto");
+		sqlSessionFactoryBean.setTypeAliasesPackage("com.example.model");
 		return sqlSessionFactoryBean.getObject();
 	}
 	

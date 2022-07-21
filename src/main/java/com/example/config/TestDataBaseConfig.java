@@ -20,7 +20,6 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 @MapperScan(value="com.example.mapper.test", sqlSessionFactoryRef="testSqlSessionFactory")
 @EnableTransactionManagement
-
 public class TestDataBaseConfig {
 	@Primary
 	@Bean(name="testDataSource")
@@ -37,7 +36,7 @@ public class TestDataBaseConfig {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(testDataSource);
 		sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mappers/test/*.xml"));
-		sqlSessionFactoryBean.setTypeAliasesPackage("com.example.dto");
+		sqlSessionFactoryBean.setTypeAliasesPackage("com.example.model");
 		return sqlSessionFactoryBean.getObject();
 	}
 	
