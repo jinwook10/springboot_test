@@ -2,12 +2,21 @@ plugins {
 	id 'org.springframework.boot' version '2.7.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'war'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+bootWar.enabled=false
+war.enabled=true
+
+war {
+	archiveBaseName = "ROOT"
+	archiveVersion= ""
+	archiveClassifier=""
+}
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
