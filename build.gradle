@@ -38,8 +38,9 @@ dependencies {
 	//마이바티스,jdbc
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 	implementation 'org.springframework.boot:spring-boot-devtools'
-
-	//implementation 'org.springframework.boot:spring-boot-starter-data-rest:2.7.1'
+	//시큐리티
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.security:spring-security-test'
 }	
 
 tasks.named('test') {
