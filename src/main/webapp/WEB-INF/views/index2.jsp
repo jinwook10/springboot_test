@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 	<c:if test="${not empty mist}"> --%>
 	<c:forEach var="mem" items="${tmlist }">
 		${mem.mem_name}
 		</br>
@@ -26,6 +25,5 @@
 		</br>
 		${mem.mem_id}
 	</c:forEach>
-<%-- 	</c:if> --%>
 </body>
 </html>
