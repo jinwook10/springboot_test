@@ -20,7 +20,13 @@ public class HomeController {
 	private final TestMemberServiceImpl tmService;
 	private final AnotherMemberServiceImpl amService;
 	//private final Member_service amService;
-	
+
+//	@RequestMapping(value = "/")
+//	public String home() throws Exception {
+//
+//		return "index";
+//	}
+
 	@RequestMapping(value = "/index2")
 	public String index2(Model model) throws Exception {
 		List<Member> tmemlist = tmService.memberList();
