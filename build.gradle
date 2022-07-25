@@ -41,6 +41,10 @@ dependencies {
 	//시큐리티
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-test'
+//	implementation 'com.sun.xml.bind:jaxb-core:4.0.0'
+//	implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+//	implementation 'com.sun.xml.bind:jaxb-impl:4.0.0'
+
 }	
 
 tasks.named('test') {
