@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.model.Member;
@@ -19,13 +20,20 @@ public class HomeController {
 	
 	private final TestMemberServiceImpl tmService;
 	private final AnotherMemberServiceImpl amService;
-	//private final Member_service amService;
+	@RequestMapping(value = "/")
+	public String home() throws Exception {
 
-//	@RequestMapping(value = "/")
-//	public String home() throws Exception {
-//
-//		return "index";
-//	}
+		return "index";
+	}
+
+	@RequestMapping("/login")
+	public String login(@RequestParam(value = "error", required = false) String error,
+						@RequestParam(value = "exception", required = false) String exception,
+						Model model){
+		model.addAttribute("error", error);
+		model.addAttribute("exception", exception);
+		return "login";
+	}
 
 	@RequestMapping(value = "/index2")
 	public String index2(Model model) throws Exception {
