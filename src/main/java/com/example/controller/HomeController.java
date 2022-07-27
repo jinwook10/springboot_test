@@ -35,6 +35,12 @@ public class HomeController {
 		return "login";
 	}
 
+	@RequestMapping(value = "/admin/adminpage")
+	public String adminpage() throws Exception {
+
+		return "admin/AdminPage";
+	}
+
 	@RequestMapping(value = "/index2")
 	public String index2(Model model) throws Exception {
 		List<Member> tmemlist = tmService.memberList();
