@@ -1,18 +1,16 @@
 package com.example.controller;
 
-import java.util.List;
-
+import com.example.model.Member;
+import com.example.service.Impl.AnotherMemberServiceImpl;
+import com.example.service.Impl.TestMemberServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.model.Member;
-import com.example.service.Impl.AnotherMemberServiceImpl;
-import com.example.service.Impl.TestMemberServiceImpl;
-
-import lombok.RequiredArgsConstructor;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -39,6 +37,12 @@ public class HomeController {
 	public String adminpage() throws Exception {
 
 		return "admin/AdminPage";
+	}
+
+	@RequestMapping(value = "/admin/notice")
+	public String notice() throws Exception {
+
+		return "admin/NoticeWrite";
 	}
 
 	@RequestMapping(value = "/index2")
