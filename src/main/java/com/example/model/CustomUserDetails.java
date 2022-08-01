@@ -8,11 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@SuppressWarnings("serial")
 @Data
 public class CustomUserDetails implements UserDetails {
 
-    private String id;
     private String password;
     private String authority;
     private boolean enabled;
@@ -32,7 +30,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return id;
+        return name;
     }
 
     @Override
@@ -55,11 +53,4 @@ public class CustomUserDetails implements UserDetails {
         return enabled;
     }
 
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

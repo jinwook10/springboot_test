@@ -1,17 +1,14 @@
 package com.example.config;
 
 import com.example.handler.LoginFailHandler;
+import com.example.service.Impl.CustomUserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.util.URLEncoder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableMBeanExport;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableWebSecurity  //SecurityConfig로 시큐리티 제어
 @Configuration
@@ -19,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final LoginFailHandler customFailHandler;
+    private final CustomUserDetailsServiceImpl customUserDetailsService;
 
     @Override
     public void configure(WebSecurity web) {
@@ -48,18 +46,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout");
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(user);
-        auth.inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder().encode("12345678")).roles("USER")
-                .and()
-                .withUser("jinwook").password(passwordEncoder().encode("1234")).roles("ADMIN");
-    }
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+////        auth.userDetailsService(user);
+//        auth.inMemoryAuthentication()
+//                .withUser("user").password(passwordEncoder().encode("12345678")).roles("USER")
+//                .and()
+//                .withUser("jinwook").password(passwordEncoder().encode("1234")).roles("ADMIN");
+//    }
+@Override
+public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.userDetailsService(customUserDetailsService);
+}
+
 
 }
 

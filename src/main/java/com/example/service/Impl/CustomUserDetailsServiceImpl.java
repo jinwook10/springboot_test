@@ -3,7 +3,6 @@ package com.example.service.Impl;
 import com.example.mapper.test.UserAuthMapper;
 import com.example.model.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
