@@ -58,4 +58,17 @@
         select * from board where id=#{no}
     </select>
 
+    <resultMap id="fileMap" type="FileData">
+        <result property="boardNum" column="board_no"/>
+        <result property="originalName" column="orgin_name"/>
+        <result property="randomName" column="random_name"/>
+        <result property="regDate" column="regdate"/>
+    </resultMap>
+    <select id="down" resultType="FileData" parameterType="String" resultMap="fileMap">
+        select * from board_file where id=#{no}
+    </select>
+
+    <select id="viewfile" resultType="int" parameterType="String">
+        select id from board_file where board_no=#{no}
+    </select>
 </mapper>
