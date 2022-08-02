@@ -23,7 +23,7 @@
     <c:forEach var="w" items="${list}" varStatus="vs">
     <tr>
         <th scope="row">${vs.count}</th>
-        <td><a href="<%=request.getContextPath() %>/view?no=${w.id}">${w.title}</td>
+        <td><a href="<%=request.getContextPath() %>/view?no=${w.id}"> ${w.title}</td>
         <td>${w.writer}</td>
         <td>${w.write_time}</td>
         <td>${w.update_time}</td>

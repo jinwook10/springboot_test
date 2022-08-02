@@ -14,15 +14,15 @@
     <input type="email" class="form-control" id="exampleFormControlInput1" value="${bd.title}" disabled>
 </div>
 <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">작성자</label>
+    <label for="exampleFormControlInput2" class="form-label">작성자</label>
     <input type="email" class="form-control" id="exampleFormControlInput2" value="${bd.writer}" disabled>
 </div>
 <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">작성일</label>
+    <label for="exampleFormControlInput3" class="form-label">작성일</label>
     <input type="email" class="form-control" id="exampleFormControlInput3" value="${bd.write_time}" disabled>
 </div>
 <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">수정일</label>
+    <label for="exampleFormControlInput4" class="form-label">수정일</label>
     <input type="email" class="form-control" id="exampleFormControlInput4" value="${bd.update_time}" disabled>
 </div>
 <div class="mb-3">
@@ -30,6 +30,11 @@
     <div class="form-control" id="exampleFormControlTextarea1"  disabled>
         ${bd.content}
     </div>
+</div>
+<div class="mb-3">
+    <label class="form-label">첨부파일</label>
+    <a href="/fileDown?no=${f.no}">다운로드
+<%--        ${f.orginname}  다운로드중--%>
 </div>
 </body>
 </html>
