@@ -26,6 +26,7 @@ public class TestMemberServiceImpl implements MemberService {
 
 	@Override
 	public void signup(String username, String password) {
+
 		userAuthMapper.signup(username, password);
 	}
 

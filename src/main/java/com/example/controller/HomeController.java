@@ -33,8 +33,10 @@ public class HomeController {
 
 	@GetMapping("/signup")
 	public String signup(){
-		return "admin/signup";
+
+		return "signup";
 	}
+
 
 	@PostMapping("/signup")
 	public String signup(String username, String password){

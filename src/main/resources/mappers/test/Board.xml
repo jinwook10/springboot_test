@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.mapper.test.BoardMapper">
+    <insert id="write" useGeneratedKeys="true" keyProperty="id" parameterType="BoardDetails" >
+        INSERT INTO board
+            (
+               title
+             , content
+             , writer
+             , write_time
+             , update_time
+            )
+        VALUES
+            (
+               #{title}
+             , #{content}
+             , #{writer}
+             , NOW()
+             , NOW()
+            )
+    </insert>
+
+
+    <insert id="fileSave" parameterType="FileData">
+        INSERT INTO board_file
+        (
+            board_no
+        , orgin_name
+        , random_name
+        , regdate
+        )
+        VALUES
+            (
+              #{boardNum}
+            , #{originalName}
+            , #{randomName}
+            , NOW()
+            )
+    </insert>
+
+    <select id="listAll" resultType="BoardDetails">
+        SELECT
+            id
+        ,   title
+        ,   content
+        ,   read_cnt
+        ,   writer
+        ,   write_time
+        ,   update_time
+        FROM
+            board
+    </select>
+
+    <select id="viewDetail" resultType="BoardDetails" parameterType="String">
+        select * from board where id=#{no}
+    </select>
+
+</mapper>

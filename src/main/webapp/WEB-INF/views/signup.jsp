@@ -7,6 +7,7 @@
   <title>Title</title>
 </head>
 <body>
+<b1>회원가입</b1>
 <div class="signupbox">
   <form method="post" action="/signup">
     <div class="mb-3">
