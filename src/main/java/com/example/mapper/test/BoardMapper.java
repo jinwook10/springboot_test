@@ -10,7 +10,7 @@ import java.util.List;
 public interface BoardMapper {
     public void write(BoardDetails boardDetails);
     public void fileSave(FileData fileData);
-    public List<BoardDetails> listAll(BoardDetails boardDetails);
+    public List<BoardDetails> listAll();
 
     public BoardDetails viewDetail(String no);
 }

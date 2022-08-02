@@ -12,7 +12,7 @@ public interface BoardService {
 //    public void delete();
     public void fileSave(FileData fileData);
 
-    public List<BoardDetails> listAll(BoardDetails boardDetails);
+    public List<BoardDetails> listAll();
 
     public BoardDetails viewDetail(String no);
 }

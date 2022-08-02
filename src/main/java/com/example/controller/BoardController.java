@@ -25,7 +25,7 @@ public class BoardController {
 
     @GetMapping("/board")
     public String board(Model model, BoardDetails boardDetails) {
-        List<BoardDetails> list = boardService.listAll(boardDetails);
+        List<BoardDetails> list = boardService.listAll();
         model.addAttribute("list", list);
         return "board/board";
     }
@@ -39,6 +39,7 @@ public class BoardController {
     @PostMapping("/write")
     public String write(String title, String content, Authentication auth, @RequestParam("file") MultipartFile files) {
         BoardDetails boardDetails = new BoardDetails();
+
         boardDetails.setTitle(title);
         boardDetails.setContent(content);
         boardDetails.setWriter(((CustomUserDetails) auth.getPrincipal()).getName());
