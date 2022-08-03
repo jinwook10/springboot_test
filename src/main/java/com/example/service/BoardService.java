@@ -15,4 +15,8 @@ public interface BoardService {
     public List<BoardDetails> listAll();
 
     public BoardDetails viewDetail(String no);
+
+    public FileData down(String no);
+
+    public int viewfile(String no);
 }

@@ -35,4 +35,14 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.viewDetail(no);
     }
 
+    @Override
+    public FileData down(String no){
+        return boardMapper.down(no);
+    }
+
+    @Override
+    public int viewfile(String no) {
+        return boardMapper.viewfile(no);
+    }
+
 }

@@ -33,8 +33,8 @@
 </div>
 <div class="mb-3">
     <label class="form-label">첨부파일</label>
-    <a href="/fileDown?no=${f.no}">다운로드
-<%--        ${f.orginname}  다운로드중--%>
+    <a href="/filedown?no=${f}">다운로드
+<%--        ${f.no}--%>
 </div>
 </body>
 </html>
