@@ -8,10 +8,9 @@
 <title>welcome page</title>
 </head>
 <body>
-${pageContext.request.userPrincipal.name}
 	Welcome
     <c:if test="${not empty pageContext.request.userPrincipal }">
-        <p> ${pageContext.request.userPrincipal.name} 으로 로그인 되어있는중 </p>
+        <p> ${pageContext.request.userPrincipal.principal.name} 으로 로그인 되어있는중 </p>
     </c:if>
     <br>
     <a href="/admin/adminpage">관리자 페이지 이동</a>

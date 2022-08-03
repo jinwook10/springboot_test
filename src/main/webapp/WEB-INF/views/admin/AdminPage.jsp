@@ -11,7 +11,7 @@
 <body>
 	관리자 페이지입니다
     <c:if test="${not empty pageContext.request.userPrincipal }">
-        <p> ${pageContext.request.userPrincipal} 으로 로그인 되어있는중 </p>
+        <p> ${pageContext.request.userPrincipal.principal.name} 으로 로그인 되어있는중 </p>
     </c:if>
     <a href="/admin/notice">공지사항 관리</a>
 </body>
