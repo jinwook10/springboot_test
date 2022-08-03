@@ -4,6 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.example.mapper.test.BoardMapper">
+    <resultMap id="fileMap" type="FileData">
+        <result property="boardNum" column="board_no"/>
+        <result property="originalName" column="orgin_name"/>
+        <result property="randomName" column="random_name"/>
+        <result property="regDate" column="regdate"/>
+    </resultMap>
+
     <insert id="write" useGeneratedKeys="true" keyProperty="id" parameterType="BoardDetails" >
         INSERT INTO board
             (
@@ -58,12 +65,6 @@
         select * from board where id=#{no}
     </select>
 
-    <resultMap id="fileMap" type="FileData">
-        <result property="boardNum" column="board_no"/>
-        <result property="originalName" column="orgin_name"/>
-        <result property="randomName" column="random_name"/>
-        <result property="regDate" column="regdate"/>
-    </resultMap>
     <select id="down" resultType="FileData" parameterType="String" resultMap="fileMap">
         select * from board_file where id=#{no}
     </select>

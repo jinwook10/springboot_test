@@ -15,7 +15,6 @@
     <input type="file" multiple="multiple" name="file">
     <input type="submit" value="글 작성">
 </form>
-<%--<div id="editor">--%>
 </div>
 <script src="/js/ckeditor.js"></script>
 <script>ClassicEditor

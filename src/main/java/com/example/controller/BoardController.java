@@ -1,8 +1,8 @@
 package com.example.controller;
 
 import com.example.model.BoardDetails;
-import com.example.model.CustomUserDetails;
 import com.example.model.FileData;
+import com.example.model.UserDetail;
 import com.example.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -32,7 +32,7 @@ public class BoardController {
 
     @GetMapping("/write")
     public String write(Model model, Authentication auth) {
-        model.addAttribute("user", ((CustomUserDetails) auth.getPrincipal()).getName());
+        model.addAttribute("user", ((UserDetail) auth.getPrincipal()).getName());
         return "board/writeForm";
     }
 
@@ -42,12 +42,10 @@ public class BoardController {
 
         boardDetails.setTitle(title);
         boardDetails.setContent(content);
-        boardDetails.setWriter(((CustomUserDetails) auth.getPrincipal()).getName());
+        boardDetails.setWriter(((UserDetail) auth.getPrincipal()).getName());
         boardService.write(boardDetails);
-        System.out.println(boardDetails.getId());
-        //int boardNo = boardService.id();
+
         if (files.getSize() != 0) {
-            System.out.println("파일있다");
             FileData fileData = new FileData();
             String filename = files.getOriginalFilename();
             UUID uuid = UUID.randomUUID();
@@ -55,8 +53,8 @@ public class BoardController {
             String randomname = uuid.toString();
             try {
                 byte[] filedata = files.getBytes();
-//아래는 집                FileOutputStream outputStream = new FileOutputStream("C:/Users/cyder/FileTest/" + randomname);
-                FileOutputStream outputStream = new FileOutputStream("C:/Users/jinwook/테스트용/" + randomname);
+                FileOutputStream outputStream = new FileOutputStream("C:/Users/cyder/FileTest/" + randomname);
+//                FileOutputStream outputStream = new FileOutputStream("C:/Users/jinwook/테스트용/" + randomname);
                 outputStream.write(filedata);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -66,23 +64,20 @@ public class BoardController {
             fileData.setBoardNum(boardDetails.getId());
             boardService.fileSave(fileData);
         }
-
-        System.out.println("이름" + files.getName());
-        System.out.println("크기" + files.getSize());
-        System.out.println("원래이름" + files.getOriginalFilename());
-
         return "redirect:/board";
     }
+
     @GetMapping("/filedown")
     public void download(HttpServletResponse response, @RequestParam("no") String no) throws Exception {
 
         try {
-            String filename = (boardService.down(no)).getRandomName();
-            String fileOname = (boardService.down(no)).getOriginalName(); //원래이름으로 바꿔주기 위함
+            var fileData =  boardService.down(no);
+            String filename = fileData.getRandomName(); //저장된 랜덤 이름
+            String fileOname = fileData.getOriginalName(); //다운받을 원래 이름
+            fileOname = new String(fileOname.getBytes("UTF-8"), "ISO-8859-1");  //크롬 파일이름 한글깨짐 해결
 
-//            System.out.println(filename);
-            String path = "C:\\Users\\jinwook\\테스트용\\" + filename;
-//            System.out.println(path);
+            System.out.println(fileData);
+            String path = "C:\\Users\\cyder\\FileTest\\" + filename;
             File file = new File(path);
             response.setHeader("Content-Disposition", "attachment; filename=" + fileOname); // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
 
@@ -103,7 +98,7 @@ public class BoardController {
     @GetMapping("/view")
     public String view(@RequestParam("no") String no, Model model) {
         BoardDetails boardDetails = boardService.viewDetail(no);
-        int fileNo = boardService.viewfile(no);
+        Integer fileNo = boardService.viewfile(no);
 
         model.addAttribute("bd", boardDetails);
         model.addAttribute("f", fileNo);

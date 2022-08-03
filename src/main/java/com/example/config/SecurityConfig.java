@@ -1,7 +1,6 @@
 package com.example.config;
 
 import com.example.handler.LoginFailHandler;
-import com.example.service.Impl.CustomAuthProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,13 +14,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final LoginFailHandler customFailHandler;
-    private final CustomAuthProvider customAuthProvider;
+    private final AuthProvider authProvider;
 
     @Override
     public void configure(WebSecurity web) {
-        web
-                .ignoring()// spring security 필터 타지 않게 설정
-                .antMatchers("/img/**");
+        web.ignoring()// spring security 필터 타지 않게 설정
+                .antMatchers("/img/**", "/js/**", "/css/**");
     }
 
     @Override
@@ -37,14 +35,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login").usernameParameter("username").passwordParameter("password")
+                .loginPage("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
                 .defaultSuccessUrl("/")
                 .failureHandler(customFailHandler)
                 .and()
                 .logout()
                 .logoutUrl("/logout")
                 .and()
-                .authenticationProvider(customAuthProvider);
+                .authenticationProvider(authProvider);
     }
 
 

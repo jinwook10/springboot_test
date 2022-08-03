@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Data
-public class CustomUserDetails implements UserDetails {
+public class UserDetail implements UserDetails {
 
     private String password;
     private String authority;

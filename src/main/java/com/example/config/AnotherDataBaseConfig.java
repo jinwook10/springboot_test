@@ -1,24 +1,20 @@
 package com.example.config;
 
-import javax.sql.DataSource;
-
+import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.zaxxer.hikari.HikariDataSource;
-
-@Configuration
-@MapperScan(value="com.example.mapper.another", sqlSessionFactoryRef="anotherSqlSessionFactory")
-@EnableTransactionManagement
+import javax.sql.DataSource;
+//현재 안쓰는 db라 주석처리
+//@Configuration
+//@MapperScan(value="com.example.mapper.another", sqlSessionFactoryRef="anotherSqlSessionFactory")
+//@EnableTransactionManagement
 public class AnotherDataBaseConfig {
 	@Bean(name="anotherDataSource")
 	@ConfigurationProperties(prefix="spring.another.datasource")

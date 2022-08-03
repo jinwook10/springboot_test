@@ -41,7 +41,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public int viewfile(String no) {
+    public Integer viewfile(String no) {
         return boardMapper.viewfile(no);
     }
 

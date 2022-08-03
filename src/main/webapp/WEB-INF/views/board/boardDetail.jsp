@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -31,10 +32,11 @@
         ${bd.content}
     </div>
 </div>
+<c:if test="${not empty f}">
 <div class="mb-3">
     <label class="form-label">첨부파일</label>
     <a href="/filedown?no=${f}">다운로드
-<%--        ${f.no}--%>
 </div>
+</c:if>
 </body>
 </html>

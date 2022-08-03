@@ -18,5 +18,5 @@ public interface BoardService {
 
     public FileData down(String no);
 
-    public int viewfile(String no);
+    public Integer viewfile(String no);
 }

@@ -30,7 +30,7 @@
     </tr>
     </c:forEach>
     </tbody>
-    <a href="/write">글 작성</a>
 </table>
+    <a href="/write">글 작성</a>
 </body>
 </html>

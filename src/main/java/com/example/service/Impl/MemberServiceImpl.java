@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TestMemberServiceImpl implements MemberService {
+public class MemberServiceImpl implements MemberService {
 
 	private final MemberMapper memberMapper;
 	private final UserAuthMapper userAuthMapper;

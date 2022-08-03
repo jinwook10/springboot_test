@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.example.mapper.test.UserAuthMapper">
-    <select id="getUserById" resultType="CustomUserDetails">
+    <select id="getUserById" resultType="UserDetail">
         SELECT name, password, authority, enabled FROM user_list WHERE name=#{value}
         </select>
     <insert id="signup">
