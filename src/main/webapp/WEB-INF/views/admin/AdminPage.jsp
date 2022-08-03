@@ -14,5 +14,7 @@
         <p> ${pageContext.request.userPrincipal.principal.name} 으로 로그인 되어있는중 </p>
     </c:if>
     <a href="/admin/notice">공지사항 관리</a>
+    <a href="/admin/member">회원 관리</a>
+    <a href="/">뒤로가기</a>
 </body>
 </html>

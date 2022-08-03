@@ -24,7 +24,7 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/board")
-    public String board(Model model, BoardDetails boardDetails) {
+    public String board(Model model) {
         List<BoardDetails> list = boardService.listAll();
         model.addAttribute("list", list);
         return "board/board";

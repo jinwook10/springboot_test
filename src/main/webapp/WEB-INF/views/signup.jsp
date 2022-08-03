@@ -20,9 +20,8 @@
     </div>
 
     <button type="submit" class="btn btn-primary">회원 가입</button>
-    </br>
-
   </form>
+  <a href="/">뒤로가기</a>
 </div>
 
 

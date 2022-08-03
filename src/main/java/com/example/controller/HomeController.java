@@ -1,12 +1,16 @@
 package com.example.controller;
 
 import com.example.model.Member;
+import com.example.model.UserDetail;
 import com.example.service.Impl.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -42,19 +46,34 @@ public class HomeController {
 		return "redirect:/login";
 	}
 
-	@RequestMapping(value = "/admin/adminpage")
+	@GetMapping(value = "/admin/adminpage")
 	public String adminpage() throws Exception {
 
 		return "admin/AdminPage";
 	}
-	@RequestMapping(value = "/admin/notice")
+	@GetMapping(value = "/admin/notice")
 	public String notice() throws Exception {
 
 		return "admin/NoticeWrite";
 	}
-	
+
+	@GetMapping(value = "/admin/member")
+	public String member() throws Exception {
+
+		return "admin/Member";
+	}
+
+	@GetMapping("/admin/getMembers")
+	@ResponseBody
+	public Object getMembers() {
+		List<UserDetail> list = tmService.listAll();
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("data", list);
+		return map;
+	}
+
 	@ResponseBody	//데이터를보냄 
-	@RequestMapping(value = "/index3")
+	@GetMapping(value = "/index3")
 	public Object index3(Model model) throws Exception {
 		Member m = new Member();
 		m.setMem_age(10);

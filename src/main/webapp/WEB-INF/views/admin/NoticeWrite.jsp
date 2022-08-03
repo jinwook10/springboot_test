@@ -20,6 +20,8 @@
     <p><input type="submit" value="전송"></p>
 </form>
 <input type="file" >
+<br>
+<a href="/admin/adminpage">뒤로가기</a>
 <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
 <script>

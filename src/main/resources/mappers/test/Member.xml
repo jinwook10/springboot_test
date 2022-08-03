@@ -13,4 +13,9 @@
     <select id="allMember" resultType="Member" resultMap="memberMap">
         SELECT name,id,age FROM member
     </select>
+
+    <select id="listAll" resultType="UserDetail">
+        SELECT name,password,authority,enabled FROM user_list
+    </select>
+
 </mapper>

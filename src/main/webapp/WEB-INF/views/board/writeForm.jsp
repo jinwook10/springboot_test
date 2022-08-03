@@ -4,7 +4,7 @@
 <head>
     <title>CKEditor 5 ClassicEditor build</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/ckeditor/css/styles.css">
 </head>
 <body>
 <form action="/write" method="post" enctype="multipart/form-data">
@@ -16,7 +16,7 @@
     <input type="submit" value="글 작성">
 </form>
 </div>
-<script src="/js/ckeditor.js"></script>
+<script src="/js/ckeditor/ckeditor.js"></script>
 <script>ClassicEditor
     .create(document.querySelector('#editor'), {
         licenseKey: '',
