@@ -4,6 +4,8 @@ import com.example.model.Member;
 import com.example.model.UserDetail;
 import com.example.service.Impl.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,8 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class HomeController {
-	
+
+	private final Logger logger = LogManager.getLogger(HomeController.class);
 	private final MemberServiceImpl tmService;
 	private final PasswordEncoder passwordEncoder;
 	@RequestMapping(value = "/")
@@ -35,7 +38,7 @@ public class HomeController {
 
 	@GetMapping("/signup")
 	public String signup(){
-
+		logger.info("test");
 		return "signup";
 	}
 
@@ -48,7 +51,6 @@ public class HomeController {
 
 	@GetMapping(value = "/admin/adminpage")
 	public String adminpage() throws Exception {
-
 		return "admin/AdminPage";
 	}
 	@GetMapping(value = "/admin/notice")
@@ -59,7 +61,6 @@ public class HomeController {
 
 	@GetMapping(value = "/admin/member")
 	public String member() throws Exception {
-
 		return "admin/Member";
 	}
 
@@ -72,13 +73,17 @@ public class HomeController {
 		return map;
 	}
 
-	@ResponseBody	//데이터를보냄 
+	@ResponseBody	//데이터를보냄
 	@GetMapping(value = "/index3")
 	public Object index3(Model model) throws Exception {
 		Member m = new Member();
+
 		m.setMem_age(10);
 		m.setMem_id("abc");
 		m.setMem_name("jinwok");
+		logger.warn("로거테스트");
+		logger.error("로거테스트");
+		logger.fatal("로거테스트");
 		return m;
 	}
 }
