@@ -1,189 +1,238 @@
 <!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v4.2.0
+* @link https://coreui.io
+* Copyright (c) 2022 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+<!-- Breadcrumb-->
 <html lang="en">
 <head>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>Dashboard - SB Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
-    <link href="/css/sb/styles.css" rel="stylesheet"/>
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>메인 페이지</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/coreui/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/coreui/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/coreui/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/coreui/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/coreui/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/coreui/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/coreui/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/coreui/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/coreui/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/coreui/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/coreui/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/coreui/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/coreui/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/coreui/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/coreui/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="/vendors/coreui/simplebar/css/simplebar.css">
+    <link rel="stylesheet" href="/css/coreui/vendors/simplebar.css">
+    <!-- Main styles for this application-->
+    <link href="/css/coreui/style.min.css" rel="stylesheet">
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
+    <link href="/css/coreui/examples.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
+
 </head>
-<body class="sb-nav-fixed">
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="/">Start Bootstrap</a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-            class="fas fa-bars"></i></button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-                   aria-describedby="btnNavbarSearch"/>
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-        </div>
-    </form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-               aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Settings</a></li>
-                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                <li>
-                    <hr class="dropdown-divider"/>
-                </li>
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+<body>
+<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+    <div class="sidebar-brand d-none d-md-flex">
+        <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+            <use xlink:href="assets/brand/coreui.svg#full"></use>
+        </svg>
+        <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
+            <use xlink:href="assets/brand/coreui.svg#signet"></use>
+        </svg>
+    </div>
+    <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+        <li class="nav-title">메뉴</li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+                <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-star"></use>
+            </svg> 페이지</a>
+            <ul class="nav-group-items">
+
+                <li class="nav-item"><a class="nav-link" href="/board" target="_top">
+                    <svg class="nav-icon">
+                        <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-dog"></use>
+                    </svg>게시판</a></li>
             </ul>
         </li>
     </ul>
-</nav>
-<div id="layoutSidenav">
-    <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
-                    </a>
-                    <div class="sb-sidenav-menu-heading">Menu</div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
-                       aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                         data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="">Static Navigation</a>
-                            <a class="nav-link" href="">Light Sidenav</a>
-                        </nav>
+    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+</div>
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <header class="header header-sticky mb-4">
+        <div class="container-fluid">
+            <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+                <svg class="icon icon-lg">
+                    <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-menu"></use>
+                </svg>
+            </button><a class="header-brand d-md-none" href="#">
+            <svg width="118" height="46" alt="CoreUI Logo">
+                <use xlink:href="/assets/coreui/brand/coreui.svg#full"></use>
+            </svg></a>
+            <ul class="header-nav d-none d-md-flex">
+                <li class="nav-item"><a class="nav-link" href="/">메인 화면</a></li>
+                <li class="nav-item"><a class="nav-link" href="/board">게시판</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/adminpage">관리자 설정</a></li>
+            </ul>
+            <ul class="header-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="">
+                    <svg class="icon icon-lg">
+                        <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-bell"></use>
+                    </svg></a></li>
+                <li class="nav-item"><a class="nav-link" href="">
+                    <svg class="icon icon-lg">
+                        <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-list-rich"></use>
+                    </svg></a></li>
+                <li class="nav-item"><a class="nav-link" href="">
+                    <svg class="icon icon-lg">
+                        <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                    </svg></a></li>
+            </ul>
+            <ul class="header-nav ms-3">
+                <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar avatar-md"><img class="avatar-img" src="/assets/coreui/img/avatars/8.jpg" alt="user@email.com"></div>
+                </a>
+                    <div class="dropdown-menu dropdown-menu-end pt-0">
+                        <div class="dropdown-header bg-light py-2">
+                            <div class="fw-semibold">Account</div>
+                        </div><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-bell"></use>
+                        </svg> Updates<span class="badge badge-sm bg-info ms-2">1</span></a><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                        </svg> Messages<span class="badge badge-sm bg-success ms-2">2</span></a><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-task"></use>
+                        </svg> Tasks<span class="badge badge-sm bg-danger ms-2">3</span></a><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-comment-square"></use>
+                        </svg> Comments<span class="badge badge-sm bg-warning ms-2">4</span></a>
+                        <div class="dropdown-header bg-light py-2">
+                            <div class="fw-semibold">Settings</div>
+                        </div><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-user"></use>
+                        </svg> Profile</a><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-settings"></use>
+                        </svg> Settings</a><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-credit-card"></use>
+                        </svg> Payments<span class="badge badge-sm bg-secondary ms-2">5</span></a><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-file"></use>
+                        </svg> Projects<span class="badge badge-sm bg-primary ms-2">6</span></a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="">
+                        <svg class="icon me-2">
+                            <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                        </svg> Lock Account</a>
+
+                        <a class="dropdown-item" href="/logout">
+                            <svg class="icon me-2">
+                                <use xlink:href="/vendors/coreui/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                            </svg> Logout</a>
                     </div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                       aria-expanded="false" aria-controls="collapsePages">
-                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                        Pages
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
-                         data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                               data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-                               aria-controls="pagesCollapseAuth">
-                                Authentication
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                                 data-bs-parent="#sidenavAccordionPages">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">Login</a>
-                                    <a class="nav-link" href="">Register</a>
-                                    <a class="nav-link" href="/board">Board</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                               data-bs-target="#pagesCollapseError" aria-expanded="false"
-                               aria-controls="pagesCollapseError">
-                                Error
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
-                                 data-bs-parent="#sidenavAccordionPages">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">401 Page</a>
-                                    <a class="nav-link" href="">404 Page</a>
-                                    <a class="nav-link" href="">500 Page</a>
-                                </nav>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="sb-sidenav-menu-heading">Addons</div>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Charts
-                    </a>
-                    <a class="nav-link" href="">
-                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Tables
-                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="header-divider"></div>
+        <div class="container-fluid">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb my-0 ms-2">
+                    <li class="breadcrumb-item">
+                        <!-- if breadcrumb is single--><span>게시판</span>
+                    </li>
+                    <%--                    <li class="breadcrumb-item active"><span>Dashboard</span></li>--%>
+                </ol>
+            </nav>
+        </div>
+    </header>
+    <div class="body flex-grow-1 px-3">
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+                    자유 게시판
+                </div>
+                <div class="card-body">
+                    <table id="test-datatable" class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">제목</th>
+                            <th scope="col">작성자</th>
+                            <th scope="col">작성일</th>
+                            <th scope="col">수정일</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/write'" style="background-color: limegreen">글 작성</button>
+                    <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/'" style="background-color: gray">뒤로가기</button>
                 </div>
             </div>
-            <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
-                Start Bootstrap
-            </div>
-        </nav>
-    </div>
-    <div id="layoutSidenav_content">
-        <main>
-            <div class="container-fluid px-4">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fas fa-table me-1"></i>
-                        DataTable Example
-                    </div>
-                    <div class="card-body">
-                        <table id="test-datatable" class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th scope="col">no</th>
-                                <th scope="col">제목</th>
-                                <th scope="col">작성자</th>
-                                <th scope="col">작성일</th>
-                                <th scope="col">수정일</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="w" items="${list}" varStatus="vs">
-                                <tr>
-                                    <th scope="row">${vs.count}</th>
-                                    <td><a href="<%=request.getContextPath() %>/view?no=${w.id}"> ${w.title}</td>
-                                    <td>${w.writer}</td>
-                                    <td>${w.write_time}</td>
-                                    <td>${w.update_time}</td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                        <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/write'" style="background-color: limegreen">글 작성</button>
-                        <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/'" style="background-color: gray">뒤로가기</button>
-                    </div>
-                </div>
-                <script>
-                    $(document).ready( function () {
-                        $('#test-datatable').DataTable();
-                    } );
-                </script>
-                <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-            </div>
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                    <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        </div>
+        <!-- /.row-->
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-<script src="/js/sb/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="/assets/sb/demo/chart-area-demo.js"></script>
-<script src="/assets/sb/demo/chart-bar-demo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<script src="/js/sb/datatables-simple-demo.js"></script>
+<!-- CoreUI and necessary plugins-->
+<script src="/vendors/coreui/@coreui/coreui/js/coreui.bundle.min.js"></script>
+<script src="/vendors/coreui/simplebar/js/simplebar.min.js"></script>
+<!-- Plugins and scripts required by this view-->
+
+<script src="/vendors/coreui/@coreui/utils/js/coreui-utils.js"></script>
+<script src="/js/coreui/main.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#test-datatable').DataTable({
+            ajax:{
+                url:"/getBoardList",
+                dataSrc:'data',
+                type:'get'
+            },
+            columns:[
+                {data:"title", render: function (data, type, row){
+                        return '<a href="<%=request.getContextPath() %>/view?no='+row.id+'">'+data+'</a>';
+                    }}
+                ,{data:"writer"}
+                ,{data:"write_time"}
+                ,{data:"update_time"}
+            ]
+            ,order: [ [ 1, "asc" ] ]
+            ,columnDefs: [
+                { targets: [1], width: 100 }
+            ]
+            ,language: {
+                emptyTable: "데이터가 없습니다.",
+                lengthMenu: "페이지당 _MENU_ 개씩 보기",
+                info: "현재 _START_ - _END_ / _TOTAL_건",
+                infoEmpty: "데이터 없음",
+                infoFiltered: "( _MAX_건의 데이터에서 필터링됨 )",
+                search: "",
+                zeroRecords: "일치하는 데이터가 없습니다.",
+                loadingRecords: "로딩중...",
+                processing: "잠시만 기다려 주세요.",
+                paginate: {
+                    next: "다음",
+                    previous: "이전",
+                },
+            }
+        })
+    } );
+</script>
 </body>
 </html>

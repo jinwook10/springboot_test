@@ -11,10 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,7 +31,14 @@ public class BoardController {
         model.addAttribute("list", list);
         return "board/board";
     }
-
+    @GetMapping("/getBoardList")
+    @ResponseBody
+    public Object getBoardList() {
+        List<BoardDetails> list = boardService.listAll();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("data", list);
+        return map;
+    }
     @GetMapping("/write")
     public String write(Model model, Authentication auth) {
         model.addAttribute("user", ((UserDetail) auth.getPrincipal()).getName());
@@ -76,7 +85,6 @@ public class BoardController {
             String fileOname = fileData.getOriginalName(); //다운받을 원래 이름
             fileOname = new String(fileOname.getBytes("UTF-8"), "ISO-8859-1");  //크롬 파일이름 한글깨짐 해결
 
-            System.out.println(fileData);
             String path = "C:\\Users\\cyder\\FileTest\\" + filename;
             File file = new File(path);
             response.setHeader("Content-Disposition", "attachment; filename=" + fileOname); // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
@@ -101,7 +109,7 @@ public class BoardController {
         Integer fileNo = boardService.viewfile(no);
 
         model.addAttribute("bd", boardDetails);
-        model.addAttribute("f", fileNo);
+        model.addAttribute("fno", fileNo);
         return "board/boardDetail";
     }
 }
