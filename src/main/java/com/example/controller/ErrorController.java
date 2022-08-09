@@ -20,7 +20,7 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
 
     @GetMapping("/forbidden")
     public void forbidden() {
-        throw new ForbiddenException("403 에러다!! !!");
+        throw new ForbiddenException("403 에러!!");
     }
     @GetMapping("/null")
     public void nullpoint() {
