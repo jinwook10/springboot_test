@@ -38,12 +38,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .successForwardUrl("/")
+                .defaultSuccessUrl("/")
                 .failureHandler(customFailHandler)
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login")
                 .and()
                 .authenticationProvider(authProvider);
     }
