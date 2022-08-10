@@ -104,7 +104,7 @@
                     자유 게시판
                 </div>
                 <div class="card-body">
-                    <table id="test-datatable" class="table table-bordered">
+                    <table id="test-datatable" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th scope="col">제목</th>
@@ -118,7 +118,7 @@
                         </tbody>
                     </table>
                     <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/write'" style="background-color: limegreen">글 작성</button>
-                    <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/'" style="background-color: gray">뒤로가기</button>
+                    <button class="btn btn-lg btn-outline-secondary mt-3" type="button" onclick="javascript:history.back();">뒤로가기</button>
                 </div>
             </div>
         </div>

@@ -12,8 +12,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>메인 페이지</title>
-    <link rel="stylesheet" href="/css/coreui/css/simplebar.css">
-    <!-- Main styles for this application-->
+
     <link href="/css/coreui/css/style.min.css" rel="stylesheet">
     <link href="/css/coreui/css/free.min.css" rel="stylesheet">
 
@@ -40,7 +39,7 @@
                             </div>
 
                             <button class="btn btn-block btn-success" type="submit">가입하기</button>
-                            <button class="btn btn-block btn-success" type="button" onclick="location.href='/login'" style="background-color: gray">뒤로가기</button>
+                            <button class="btn btn-block btn-secondary" type="button" onclick="javascript:history.back();">뒤로가기</button>
                         </div>
                     </form>
                 </div>
@@ -49,7 +48,6 @@
     </div>
 </div>
 <script src="/js/coreui/coreui.bundle.min.js"></script>
-<script src="/js/coreui/simplebar.min.js"></script>
 
 </body>
 </html>

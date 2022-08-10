@@ -10,20 +10,13 @@
     <!-- Main styles for this application-->
     <link href="/css/coreui/css/style.min.css" rel="stylesheet">
     <link href="/css/coreui/css/free.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
 
 </head>
 <body>
 <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
     <div class="sidebar-brand d-none d-md-flex">
-        <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#full"></use>
-        </svg>
-        <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#signet"></use>
-        </svg>
+
     </div>
     <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
         <li class="nav-title">메뉴</li>
@@ -104,7 +97,7 @@
                     회원 목록
                 </div>
                 <div class="card-body">
-                    <table id="test-datatable" class="table table-bordered">
+                    <table id="test-datatable" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th scope="col">아이디</th>
@@ -115,7 +108,7 @@
                         <tbody>
                         </tbody>
                     </table>
-                    <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/admin/adminpage'" style="background-color: gray">뒤로가기</button>
+                    <button class="btn btn-lg btn-secondary mt-3" type="button" onclick="javascript:history.back();">뒤로가기</button>
                 </div>
             </div>
         </div>
@@ -125,6 +118,8 @@
 <!-- CoreUI and necessary plugins-->
 <script src="/js/coreui/coreui.bundle.min.js"></script>
 <script src="/js/coreui/simplebar.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready( function () {

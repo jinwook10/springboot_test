@@ -12,8 +12,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>메인 페이지</title>
-    <link rel="stylesheet" href="/css/coreui/css/simplebar.css">
-    <!-- Main styles for this application-->
+
     <link href="/css/coreui/css/style.min.css" rel="stylesheet">
     <link href="/css/coreui/css/free.min.css" rel="stylesheet">
 
@@ -52,7 +51,7 @@
                             <div>
                                 <h2>회원가입</h2>
                                 <p>해당 서비스를 이용하시려면 회원가입을 해주세요.</p>
-                                <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/signup'" style="background-color: goldenrod">가입 하기</button>
+                                <button class="btn btn-lg btn-outline-secondary mt-3" type="button" onclick="location.href='/signup'">가입 하기</button>
                             </div>
                         </div>
                     </div>
@@ -62,7 +61,6 @@
     </div>
 </div>
 <script src="/js/coreui/coreui.bundle.min.js"></script>
-<script src="/js/coreui/simplebar.min.js"></script>
 
 </body>
 </html>

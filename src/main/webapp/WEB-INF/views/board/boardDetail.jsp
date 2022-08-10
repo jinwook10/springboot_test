@@ -124,8 +124,8 @@
             </div>
             </c:if>
             <br>
-            <button class="btn btn-lg btn-outline-light mt-3" type="button" onclick="location.href='/board'"
-                    style="background-color: gray">뒤로가기
+            <button class="btn btn-lg btn-outline-secondary mt-3" type="button" onclick="javascript:history.back();"
+                    >뒤로가기
             </button>
 
     </div>
